@@ -3,62 +3,51 @@
 %define develname %mklibname -d amrwb
 %define distsuffix plf
 
-Summary: AMR WideBand speech codec
-Name: amrwb
-Version: 7.0.0.4
-Release: %mkrel 1
-License: Distributable
-Group: System/Libraries
-URL: http://www.penguin.cz/~utx/amr
-Source: http://ftp.penguin.cz/pub/users/utx/amr/amrwb-%{version}.tar.bz2
-Source1: http://www.3gpp.org/ftp/Specs/archive/26_series/26.204/26204-700.zip
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
+Summary:	AMR WideBand speech codec
+Name:		amrwb
+Version:	7.0.0.4
+Release:	%mkrel 1
+License:	Distributable
+Group:		System/Libraries
+URL:		http://www.penguin.cz/~utx/amr
+Source:		http://ftp.penguin.cz/pub/users/utx/amr/amrwb-%{version}.tar.bz2
+Source1:	http://www.3gpp.org/ftp/Specs/archive/26_series/26.204/26204-700.zip
 
 %description
 AMR-WB is a wideband speech codec used in mobile phones.
 
-This package is in restricted as it might violate some patents.
+This package is in restricted as it may violate some patents.
 
 %package -n %{libname}
-Summary: AMR WideBand speech codec development files
-Group: System/Libraries
+Summary:	AMR WideBand speech codec development files
+Group:		System/Libraries
 
 %description -n %{libname}
 AMR-NB is a wideband speech codec used in mobile phones development files.
 
-
 %package -n %{develname}
-Summary: AMR WideBand speech codec development files
-Group: Development/C
-Requires: %{libname} = %{version}
-Provides: lib%{name}-devel = %{version}-%{release}
-Conflicts: %mklibname -d amrwb 0
-Obsoletes: %mklibname -d amrwb 2
+Summary:	AMR WideBand speech codec development files
+Group:		Development/C
+Requires:	%{libname} = %{version}
+Provides:	lib%{name}-devel = %{version}-%{release}
 
 %description -n %{develname}
 AMR-NB is a wideband speech codec used in mobile phones development files.
 
 %prep
 %setup -q
-cp %{SOURCE1} .
+%__cp %{SOURCE1} .
 
 %build
 %configure2_5x --enable-static
 %make
 
-
 %install
-%{__rm} -rf %{buildroot}
+%__rm -rf %{buildroot}
 %makeinstall_std
 
 %clean
-%{__rm} -rf %{buildroot}
-
-
-%if %mdkversion < 200900
-%post -n %{libname} -p /sbin/ldconfig
-%postun -n %{libname} -p /sbin/ldconfig
-%endif
+%__rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root,0755)
