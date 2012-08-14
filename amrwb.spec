@@ -6,7 +6,7 @@
 Summary:	AMR WideBand speech codec
 Name:		amrwb
 Version:	7.0.0.4
-Release:	%mkrel 1
+Release:	2
 License:	Distributable
 Group:		System/Libraries
 URL:		http://www.penguin.cz/~utx/amr
@@ -43,26 +43,18 @@ AMR-NB is a wideband speech codec used in mobile phones development files.
 %make
 
 %install
-%__rm -rf %{buildroot}
 %makeinstall_std
 
-%clean
-%__rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root,0755)
 %doc README AUTHORS TODO COPYING
 %{_bindir}/*
 
 %files -n %{libname}
-%defattr(-,root,root,0755)
 %{_libdir}/libamrwb.so.%{major}*
 
 %files -n %{develname}
-%defattr(-,root,root,0755)
 %{_includedir}/amrwb/
 %{_libdir}/libamrwb.a
-%{_libdir}/libamrwb.la
 %{_libdir}/libamrwb.so
 
 %changelog
