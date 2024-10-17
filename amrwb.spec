@@ -9,7 +9,7 @@ Version:	7.0.0.4
 Release:	%mkrel 1
 License:	Distributable
 Group:		System/Libraries
-URL:		http://www.penguin.cz/~utx/amr
+URL:		https://www.penguin.cz/~utx/amr
 Source:		http://ftp.penguin.cz/pub/users/utx/amr/amrwb-%{version}.tar.bz2
 Source1:	http://www.3gpp.org/ftp/Specs/archive/26_series/26.204/26204-700.zip
 
