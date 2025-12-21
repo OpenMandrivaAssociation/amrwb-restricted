@@ -13,6 +13,11 @@ URL:		https://www.penguin.cz/~utx/amr
 Source:		http://ftp.penguin.cz/pub/users/utx/amr/amrwb-%{version}.tar.bz2
 Source1:	http://www.3gpp.org/ftp/Specs/archive/26_series/26.204/26204-700.zip
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 %description
 AMR-WB is a wideband speech codec used in mobile phones.
 
